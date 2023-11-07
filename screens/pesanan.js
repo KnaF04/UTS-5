@@ -1,65 +1,199 @@
-// pesanan.js
 import React from 'react';
-import { View, Text, Image, Container, Content } from 'native-base';
+import { Image, FlatList } from 'react-native';
+import { NativeBaseProvider, Box, Text } from 'native-base';
 
 const Pesanan = () => {
-  // Sample data for orders
-  const orders = [
+  const data = [
     {
       id: 1,
-      productImage: 'https://example.com/product1.jpg',
-      productName: 'Product 1',
+      imageSource: require('../assets/images/danabaru.png'),
+      altText: 'Payment Method 1',
+      title: 'Example Product',
+      quantity: '2',
       price: '$10.00',
-      quantity: 3,
-      isFinished: true, // Order is finished
+      isFinished: false,
     },
     {
       id: 2,
-      productImage: 'https://example.com/product2.jpg',
-      productName: 'Product 2',
-      price: '$15.00',
-      quantity: 2,
-      isFinished: false, // Order is not finished yet
+      imageSource: require('../assets/images/danabaru.png'),
+      altText: 'Payment Method 1',
+      title: 'Example Product',
+      quantity: '2',
+      price: '$10.00',
+      isFinished: true,
     },
+    {
+      id: 3,
+      imageSource: require('../assets/images/wortel2.jpg'),
+      altText: 'Another Image',
+      title: 'Another Product Name',
+      quantity: '3',
+      price: '$15.00',
+      isFinished: false,
+    },
+    {
+      id: 4,
+      imageSource: require('../assets/images/wortel2.jpg'),
+      altText: 'Another Image',
+      title: 'Another Product Name',
+      quantity: '3',
+      price: '$15.00',
+      isFinished: true,
+    },
+    {
+      id: 5,
+      imageSource: require('../assets/images/wortel2.jpg'),
+      altText: 'Another Image',
+      title: 'Another Product Name',
+      quantity: '3',
+      price: '$15.00',
+      isFinished: false,
+    },
+    {
+      id: 6,
+      imageSource: require('../assets/images/wortel2.jpg'),
+      altText: 'Another Image',
+      title: 'Another Product Name',
+      quantity: '3',
+      price: '$15.00',
+      isFinished: true,
+    },
+    {
+      id: 7,
+      imageSource: require('../assets/images/wortel2.jpg'),
+      altText: 'Another Image',
+      title: 'Another Product Name',
+      quantity: '3',
+      price: '$15.00',
+      isFinished: false,
+    },
+    {
+      id: 8,
+      imageSource: require('../assets/images/wortel2.jpg'),
+      altText: 'Another Image',
+      title: 'Another Product Name',
+      quantity: '3',
+      price: '$15.00',
+      isFinished: true,
+    },
+    {
+      id: 9,
+      imageSource: require('../assets/images/wortel2.jpg'),
+      altText: 'Another Image',
+      title: 'Another Product Name',
+      quantity: '3',
+      price: '$15.00',
+      isFinished: false,
+    },
+    {
+      id: 10,
+      imageSource: require('../assets/images/wortel2.jpg'),
+      altText: 'Another Image',
+      title: 'Another Product Name',
+      quantity: '3',
+      price: '$15.00',
+      isFinished: true,
+    },
+    {
+      id: 11,
+      imageSource: require('../assets/images/wortel2.jpg'),
+      altText: 'Another Image',
+      title: 'Another Product Name',
+      quantity: '3',
+      price: '$15.00',
+      isFinished: false,
+    },
+    {
+      id: 12,
+      imageSource: require('../assets/images/wortel2.jpg'),
+      altText: 'Another Image',
+      title: 'Another Product Name',
+      quantity: '3',
+      price: '$15.00',
+      isFinished: true,
+    },
+    {
+      id: 13,
+      imageSource: require('../assets/images/wortel2.jpg'),
+      altText: 'Another Image',
+      title: 'Another Product Name',
+      quantity: '3',
+      price: '$15.00',
+      isFinished: false,
+    },
+    {
+      id: 14,
+      imageSource: require('../assets/images/wortel2.jpg'),
+      altText: 'Another Image',
+      title: 'Another Product Name',
+      quantity: '3',
+      price: '$15.00',
+      isFinished: true,
+    },
+    {
+      id: 15,
+      imageSource: require('../assets/images/wortel2.jpg'),
+      altText: 'Another Image',
+      title: 'Another Product Name',
+      quantity: '3',
+      price: '$15.00',
+      isFinished: false,
+    },
+    // Add more data as needed
   ];
 
+  
+  const renderItem = ({ item }) => (
+    <Box
+      flexDirection="row"
+      alignItems="center"
+      p={2}
+      borderBottomWidth={1}
+      borderWidth={2}
+      borderColor="gray.200"
+      marginTop={3}
+      marginLeft={3}
+      marginRight={3}
+      background={item.isFinished ? 'green.200' : 'red.200'}
+      rounded={20}
+      shadow={3} // Use shadow={2} for a subtle shadow
+    >
+      <Box
+        position="absolute"
+        top={2}
+        start={2}
+        zIndex={1}
+        backgroundColor={item.isFinished ? 'green.500' : 'red.500'}
+        padding={1}
+        borderRadius={3}
+        rounded={10}
+      >
+        <Text color="white" fontSize="xs">
+          {item.isFinished ? 'Selesai' : 'Belum selesai'}
+        </Text>
+      </Box>
+  
+      <Image
+        source={item.imageSource}
+        alt={item.altText}
+      />
+  
+      <Box ml={2} flex={1} flexDirection="column" justifyContent="space-between">
+        <Text fontWeight="bold">{item.title}</Text>
+        <Text>Quantity: {item.quantity}</Text>
+        <Text>Price: {item.price}</Text>
+      </Box>
+    </Box>
+  );
+  
   return (
-    <Container>
-      <Content>
-        {orders.map((order) => (
-          <View
-            key={order.id}
-            style={{
-              flexDirection: 'row',
-              borderBottomWidth: 1,
-              borderBottomColor: 'lightgray',
-              padding: 10,
-            }}
-          >
-            {/* Left side: Order Condition */}
-            <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-              <Text>{order.isFinished ? 'Finish' : 'Not Finish Yet'}</Text>
-            </View>
-
-            {/* Right side: Product Information */}
-            <View style={{ flex: 4, flexDirection: 'row', alignItems: 'center' }}>
-              {/* Product Image */}
-              <Image
-                source={{ uri: order.productImage }}
-                style={{ width: 80, height: 80, marginRight: 10 }}
-              />
-
-              {/* Product Details */}
-              <View>
-                <Text>{order.productName}</Text>
-                <Text>{order.price}</Text>
-                <Text>Quantity: {order.quantity}</Text>
-              </View>
-            </View>
-          </View>
-        ))}
-      </Content>
-    </Container>
+    <NativeBaseProvider>
+      <FlatList
+        data={data}
+        renderItem={renderItem}
+        keyExtractor={(item) => item.id.toString()}
+      />
+    </NativeBaseProvider>
   );
 };
 
