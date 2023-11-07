@@ -9,32 +9,32 @@ const Metode = () => {
     <NativeBaseProvider>
       <Radio.Group name="paymentMethod" value={selectedMethod} onChange={setSelectedMethod}>
         <Box
-          flexDirection="row"
+          flexDirection="row" // Set flexDirection to "row"
           alignItems="center"
           p={2}
           borderBottomWidth={1}
           borderWidth={2}
           borderColor="gray.200"
-          // margin={3}
           marginTop={3}
           marginLeft={3}
           marginRight={3}
+          background={'white'}
+          rounded={10}
         >
           {/* Left side (Picture) */}
           <Image
-            source={require('../assets/images/favicon.png')}
+            source={require('../assets/images/danabaru.png')}
             alt="Payment Method 1"
-            size={98}
           />
           {/* Right side (Title-like Text) with Radio button */}
           <Box ml={2} flex={1} flexDirection="row" justifyContent="space-between" alignItems="center" marginRight={2}>
-            <Text fontWeight="bold">Payment Method 1</Text>
+            <Text fontWeight="bold">Dana</Text>
             <Radio value="option2" />
           </Box>
         </Box>
 
         <Box
-          flexDirection="row"
+          flexDirection="row" // Set flexDirection to "row"
           alignItems="center"
           p={2}
           borderBottomWidth={1}
@@ -44,43 +44,41 @@ const Metode = () => {
           marginLeft={3}
           marginRight={3}
           borderRadius={2}
-          rounded={10  }
+          rounded={10}
+          background={'white'}
         >
           {/* Left side (Picture) */}
           <Image
-            source={require('../assets/images/gopay.jpg')}
-            alt="Payment Method 1"
-            style={{ width: 200}}
-          />
+            source={require('../assets/images/gopaybaru.png')}
+            alt="Payment Method 1"          />
           {/* Right side (Title-like Text) with Radio button */}
           <Box ml={2} flex={1} flexDirection="row" justifyContent="space-between" alignItems="center">
-            <Text fontWeight="bold">Payment Method 1</Text>
+            <Text fontWeight="bold">Gopay</Text>
             <Radio value="option1" />
           </Box>
         </Box>
 
         <Box
-          flexDirection="row"
+          flexDirection="row" // Set flexDirection to "row"
           alignItems="center"
           p={2}
           borderBottomWidth={1}
           borderWidth={2}
           borderColor="gray.200"
-          // margin={3}
-          marginTop={3}
+          marginTop={1}
           marginLeft={3}
           marginRight={3}
+          borderRadius={2}
+          rounded={10}
+          background={'white'}
         >
           {/* Left side (Picture) */}
           <Image
             source={require('../assets/images/shopeepay.png')}
-            alt="Payment Method 1"
-            width={100}
-            height={400}
-          />
+            alt="Payment Method 1"          />
           {/* Right side (Title-like Text) with Radio button */}
           <Box ml={2} flex={1} flexDirection="row" justifyContent="space-between" alignItems="center" marginRight={2}>
-            <Text fontWeight="bold">Payment Method 1</Text>
+            <Text fontWeight="bold">Shopeepay</Text>
             <Radio value="option3" />
           </Box>
         </Box>
