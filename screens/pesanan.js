@@ -77,7 +77,7 @@ const Pesanan = () => {
       isFinished: true,
     },
     {
-      id: 9,
+      id: 9, 
       imageSource: require('../assets/images/wortel2.jpg'),
       altText: 'Another Image',
       title: 'Another Product Name',
@@ -139,7 +139,6 @@ const Pesanan = () => {
       price: '$15.00',
       isFinished: false,
     },
-    // Add more data as needed
   ];
 
   
@@ -156,7 +155,7 @@ const Pesanan = () => {
       marginRight={3}
       background={item.isFinished ? 'green.200' : 'red.200'}
       rounded={20}
-      shadow={3} // Use shadow={2} for a subtle shadow
+      shadow={3} 
     >
       <Box
         position="absolute"

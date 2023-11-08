@@ -24,7 +24,6 @@ const Metode = () => {
       altText: 'Shopeepay',
       title: 'Shopeepay',
     },
-    // Add more payment methods with the same title and image
     {
       id: 'option4',
       imageSource: require('../assets/images/gopay.jpg'),
@@ -58,10 +57,9 @@ const Metode = () => {
       marginRight={3}
       background={'white'}
       rounded={10}
+      shadow={3}
     >
-      {/* Left side (Picture) */}
       <Image source={item.imageSource} alt={item.altText} style={{ width: 123, height: 123, resizeMode: 'contain' }} />
-      {/* Right side (Title-like Text) with Radio button */}
       <Box ml={2} flex={1} flexDirection="row" justifyContent="space-between" alignItems="center" marginRight={2}>
         <Text fontWeight="bold">{item.title}</Text>
         <Radio.Group name="paymentMethod" value={selectedMethod} onChange={setSelectedMethod}>

@@ -53,7 +53,6 @@ const FAQ = () => {
       answer: 'Answer to Question 5',
       isExpanded: false,
     },
-    // Add more FAQs here as needed
   ]);
 
   useEffect(() => {
@@ -89,13 +88,14 @@ const FAQ = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor:'#dcf0b1',
+    backgroundColor:'white',
   },
   title: {
     fontSize: 28,
     fontWeight: 'bold',
     marginBottom: 10,
     textAlign: 'center',
+    marginTop: 10,
     
   },
   content: {
@@ -116,7 +116,7 @@ const styles = StyleSheet.create({
     marginRight: 10,
     marginLeft: 10,
     padding: 20,
-    backgroundColor: '#94CD16',
+    backgroundColor: '#dcf0b1',
     backgroundColoropacity: 5,
     borderRadius: 10,
   },

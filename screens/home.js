@@ -15,37 +15,52 @@ const Home = () => {
         p={4}
         alignItems="center"
         justifyContent="center"
-        bg="primary.100"
+        bg=""
       >
         <Heading size="lg" mb={2}>
-          Welcome to the Home Screen
+        Home Screen
         </Heading>
         <Text fontSize="xl" mb={4}>
-          This is a simple NativeBase template in the Home screen.
+          Cuma pindah screen karna screen satu sama lain tidak nyambung
         </Text>
         <Button
-            colorScheme="teal"
+            w="170"
+            h="50"
+            justifyContent="center"
+            alignItems="center"
+            marginTop={5}
+            colorScheme="green"
             onPress={() => {
             navigation.navigate('FAQ');
             }}mb={2}>
-            Click Me (Button 1)
+            FAQ
         </Button>
 
         <Button
-            colorScheme="teal"
+            w="170"
+            h="50"
+            justifyContent="center"
+            alignItems="center"
+            marginTop={5}
+            marginBottom={5}
+            colorScheme="green"
             onPress={() => {
             navigation.navigate('Pesanan');
             }}mb={2}>
-            Click Me (Button 2)
+            Pesanan
         </Button>
 
 
         <Button
-            colorScheme="teal"
+            w="170"
+            h="50"
+            justifyContent="center"
+            alignItems="center"
+            colorScheme="green"
             onPress={() => {
             navigation.navigate('Metode');
             }}>
-            Click Me (Button 3)
+            Metode Pembayaran
         </Button>
 
       </Box>
