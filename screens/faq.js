@@ -1,131 +1,106 @@
-import React, { useState, useEffect } from 'react';
-import { View, Text, ScrollView, TouchableOpacity, StyleSheet, LayoutAnimation } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, TouchableOpacity } from 'react-native';
+import Collapsible from 'react-native-collapsible';
 
-const FAQ = () => {
-  const [faqs, setFaqs] = useState([
-    {
-      question: 'Question 1',
-      answer: 'It can’t help but hear a pin drop from over half a mile away, so it lives deep in the mountains where there aren’t many people or Pokémon.It was born from sludge on the ocean floor',
-      isExpanded: false,
-    },
-    {
-      question: 'Question 2',
-      answer: 'so it lives deep in the mountains where there aren’t many people or Pokémon.It was born from sludge on the ocean floor',
-      isExpanded: false,
-    },
-    {
-      question: 'Question 3',
-      answer: 'It can’t help but hear a pin drop from over half a mile away, so it lives deep in the mountains where there aren’t many people or Pokémon.It was born from sludge on the ocean floor It can’t help but hear a pin drop from over half a mile away, so it lives deep in the mountains where there aren’t many people or Pokémon.It was born from sludge on the ocean floor',
-      isExpanded: false,
-    },
-    {
-      question: 'Question 4',
-      answer: 'Answer to Question 4',
-      isExpanded: false,
-    },
-    {
-      question: 'Question 5',
-      answer: 'Answer to Question 5',
-      isExpanded: false,
-    },
-    {
-      question: 'Question 1',
-      answer: 'Answer to Question 1',
-      isExpanded: false,
-    },
-    {
-      question: 'Question 2',
-      answer: 'Answer to Question 2',
-      isExpanded: false,
-    },
-    {
-      question: 'Question 3',
-      answer: 'Answer to Question 3',
-      isExpanded: false,
-    },
-    {
-      question: 'Question 4',
-      answer: 'Answer to Question 4',
-      isExpanded: false,
-    },
-    {
-      question: 'Question 5',
-      answer: 'Answer to Question 5',
-      isExpanded: false,
-    },
-  ]);
+const FAQScreen = () => {
+  const [collapsed, setCollapsed] = useState(Array(3).fill(true));
 
-  useEffect(() => {
-    LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
-  }, [faqs]);
-
-  const toggleFAQ = (index) => {
-    const updatedFaqs = [...faqs];
-    updatedFaqs[index].isExpanded = !updatedFaqs[index].isExpanded;
-    setFaqs(updatedFaqs);
+  const toggleCollapse = (index) => {
+    const newCollapsed = [...collapsed];
+    newCollapsed[index] = !newCollapsed[index];
+    setCollapsed(newCollapsed);
   };
 
   return (
-    <View style={styles.container}>
-      <ScrollView style={styles.content}>
-        <Text style={styles.title}>Frequently Asked Questions</Text>
-        {faqs.map((faq, index) => (
-          <View key={index} style={styles.faqSection}>
-            <TouchableOpacity onPress={() => toggleFAQ(index)} style={styles.faqContainer}>
-              <Text style={styles.faqText}>{faq.question}</Text>
-              <Text style={styles.plusLogo}>{faq.isExpanded ? ' ᐯ ' : ' ᐳ '}</Text>
-            </TouchableOpacity>
-            {faq.isExpanded && (
-              <Text style={styles.answer}>{faq.answer}</Text>
-            )}
-          </View>
-        ))}
-      </ScrollView>
+    <View style={{ padding: 16 }}>
+      <TouchableOpacity onPress={() => toggleCollapse(0)}>
+        <View
+          style={{
+            backgroundColor: 'lightgray',
+            padding: 16,
+            borderRadius: 8,
+            marginBottom: 12,
+          }}
+        >
+          <Text style={{ fontSize: 18, fontWeight: 'bold' }}>Apa itu Brokoli?</Text>
+        </View>
+      </TouchableOpacity>
+      <Collapsible collapsed={collapsed[0]}>
+        <View
+          style={{
+            backgroundColor: 'white',
+            padding: 16,
+            borderRadius: 8,
+            marginBottom: 16,
+            borderColor: 'lightgray',
+            borderWidth: 1,
+          }}
+        >
+          <Text style={{ fontSize: 16 }}>
+            Brokoli adalah sayuran berwarna hijau dengan batang yang keras dan kepala bunga kecil yang padat. Sayuran ini dikenal karena nilai gizinya yang tinggi dan sering digunakan dalam berbagai hidangan.
+          </Text>
+        </View>
+      </Collapsible>
+
+      <TouchableOpacity onPress={() => toggleCollapse(1)}>
+        <View
+          style={{
+            backgroundColor: 'lightgray',
+            padding: 16,
+            borderRadius: 8,
+            marginBottom: 12,
+          }}
+        >
+          <Text style={{ fontSize: 18, fontWeight: 'bold' }}>Bagaimana cara memasak Sawi?</Text>
+        </View>
+      </TouchableOpacity>
+      <Collapsible collapsed={collapsed[1]}>
+        <View
+          style={{
+            backgroundColor: 'white',
+            padding: 16,
+            borderRadius: 8,
+            marginBottom: 16,
+            borderColor: 'lightgray',
+            borderWidth: 1,
+          }}
+        >
+          <Text style={{ fontSize: 16 }}>
+            Sawi dapat digoreng dengan bawang putih dan saus tiram untuk hidangan yang lezat. Sawi juga bisa ditambahkan ke sup dan semur untuk rasa dan gizi tambahan.
+          </Text>
+        </View>
+      </Collapsible>
+
+      <TouchableOpacity onPress={() => toggleCollapse(2)}>
+        <View
+          style={{
+            backgroundColor: 'lightgray',
+            padding: 16,
+            borderRadius: 8,
+            marginBottom: 12,
+          }}
+        >
+          <Text style={{ fontSize: 18, fontWeight: 'bold' }}>Mengapa Bawang populer dalam masakan?</Text>
+        </View>
+      </TouchableOpacity>
+      <Collapsible collapsed={collapsed[2]}>
+        <View
+          style={{
+            backgroundColor: 'white',
+            padding: 16,
+            borderRadius: 8,
+            marginBottom: 16,
+            borderColor: 'lightgray',
+            borderWidth: 1,
+          }}
+        >
+          <Text style={{ fontSize: 16 }}>
+            Bawang, juga dikenal sebagai bawang merah, populer dalam masakan karena rasanya yang kuat dan aromanya. Bawang ini memberikan kedalaman dan kekayaan rasa pada berbagai hidangan dan merupakan bahan dasar dalam banyak masakan.
+          </Text>
+        </View>
+      </Collapsible>
     </View>
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor:'white',
-  },
-  title: {
-    fontSize: 28,
-    fontWeight: 'bold',
-    marginBottom: 10,
-    textAlign: 'center',
-    marginTop: 10,
-    
-  },
-  content: {
-    marginTop: 10,
-  },
-  faqSection: {
-    marginTop: 20,
-  },
-  answer: {
-    padding: 20,
-    marginRight: 10,
-    marginLeft: 10,
-    
-  },
-  faqContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginRight: 10,
-    marginLeft: 10,
-    padding: 20,
-    backgroundColor: '#dcf0b1',
-    backgroundColoropacity: 5,
-    borderRadius: 10,
-  },
-  faqText: {
-    fontSize: 18,
-  },
-  plusLogo: {
-    fontSize: 24,
-  },
-});
-
-export default FAQ;
+export default FAQScreen;

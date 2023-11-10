@@ -1,70 +1,22 @@
 import React from 'react';
-import { NativeBaseProvider, Box, Heading, Text, Button } from 'native-base';
+import { NativeBaseProvider, Box, Heading, Text, Button, Center, HStack, VStack } from 'native-base';
 import { useNavigation } from '@react-navigation/native';
+import { SafeAreaView } from 'react-native';
 
 const Home = () => {
     const navigation = useNavigation();
-  const handleButtonClick = (buttonText) => {
-    alert(`${buttonText} button clicked`);
-  };
-
-  return (
-    <NativeBaseProvider>
-      <Box
-        flex={1}
-        p={4}
-        alignItems="center"
-        justifyContent="center"
-        bg=""
-      >
-        <Heading size="lg" mb={2}>
+          return (
+    <SafeAreaView>
+        <Center>
+        <VStack  justifyContent='center' alignItems="center"   flexDirection="column" space={10} mt={20}>
+        <Heading>
         Home Screen
         </Heading>
-        <Text fontSize="xl" mb={4}>
-          Cuma pindah screen karna screen satu sama lain tidak nyambung
-        </Text>
-        <Button
-            w="170"
-            h="50"
-            justifyContent="center"
-            alignItems="center"
-            marginTop={5}
-            colorScheme="green"
-            onPress={() => {
-            navigation.navigate('FAQ');
-            }}mb={2}>
-            FAQ
-        </Button>
-
-        <Button
-            w="170"
-            h="50"
-            justifyContent="center"
-            alignItems="center"
-            marginTop={5}
-            marginBottom={5}
-            colorScheme="green"
-            onPress={() => {
-            navigation.navigate('Pesanan');
-            }}mb={2}>
-            Pesanan
-        </Button>
+        </VStack>
+        </Center>
 
 
-        <Button
-            w="170"
-            h="50"
-            justifyContent="center"
-            alignItems="center"
-            colorScheme="green"
-            onPress={() => {
-            navigation.navigate('Metode');
-            }}>
-            Metode Pembayaran
-        </Button>
-
-      </Box>
-    </NativeBaseProvider>
+    </SafeAreaView>
   );
 };
 
